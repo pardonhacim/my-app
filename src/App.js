@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import Navbar from './components/Navbar';
+import Locations from './components/Locations';
 import './App.css';
+import data from "./data";
+import Footer from './components/Footer';
+import "@fontsource/inter";
 
 function App() {
+  const locations= data.map(locationData =>{
+    return(
+      <Locations data={locationData}/>
+    )
+})
   return (
+          
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Navbar/>
+        <section className='location-list'>{locations}</section>
+        <Footer/>
     </div>
   );
 }
